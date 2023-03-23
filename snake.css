@@ -1,6 +1,10 @@
 #gameContainer {
     font-family: cursive;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 #gameBoard {
@@ -20,6 +24,7 @@
     background-color: darkturquoise;
     color: yellow;
     cursor: pointer;
+    display: inline-block;
 }
 
 #resetBtn:hover {
@@ -28,4 +33,40 @@
 
 #resetBtn:active {
     opacity: 0.6;
+}
+
+#btnContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    justify-content: space-around;
+    gap: 30px;
+
+}
+
+#btnUp {
+    grid-column-start: 2;
+}
+
+#btnDown {
+    grid-column-start: 2;
+}
+
+#btnLeft {
+    grid-column-start: 1;
+}
+
+#btnRight {
+    grid-column-start: 3;
+}
+
+.movementBtns {
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(209, 0, 167);
+    color: rgb(103, 253, 83);
+    font-size: 40px;
+    text-align: center;
+    cursor: pointer;
+    display: inline-block;
 }
