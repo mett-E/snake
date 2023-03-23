@@ -12,6 +12,25 @@ const gameHeight = 500
 const boardBackground = "white"
 const gameSpeedInMs = 50
 
+// buttons:--------------------------------------------------------
+const movementBtns = document.querySelectorAll(".movementBtns")
+let arrowRight = new KeyboardEvent('keydown');
+Object.defineProperty(arrowRight, 'keyCode', {
+    get: () => 39
+});
+let arrowLeft = new KeyboardEvent('keydown');
+Object.defineProperty(arrowLeft, 'keyCode', {
+    get: () => 37
+});
+let arrowUp = new KeyboardEvent('keydown');
+Object.defineProperty(arrowUp, 'keyCode', {
+    get: () => 38
+});
+let arrowDown = new KeyboardEvent('keydown');
+Object.defineProperty(arrowDown, 'keyCode', {
+    get: () => 40
+});
+//------------------------------------------------------------------
 
 let score = 0
 let foodX;
@@ -28,6 +47,34 @@ let gameRunning = false
 
 window.addEventListener("keydown", changeDirection)
 resetBtn.addEventListener("click", resetGame)
+
+movementBtns.forEach(button => {
+    switch (button.getAttribute("id")) {
+        case "btnUp":
+            button.addEventListener("click", () => {
+                changeDirection(arrowUp)
+            })
+            break
+        case "btnDown":
+            button.addEventListener("click", () => {
+                changeDirection(arrowDown)
+            })
+            break
+        case "btnLeft":
+            button.addEventListener("click", () => {
+                changeDirection(arrowLeft)
+            })
+            break
+        case "btnRight":
+            button.addEventListener("click", () => {
+                changeDirection(arrowRight)
+            })
+            break
+    }
+})
+
+
+changeDirection(arrowRight)
 
 startGame()
 
